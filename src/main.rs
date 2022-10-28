@@ -29,7 +29,7 @@ through millions of papers?";
         for(j, tag) in tags.iter().enumerate() {
             let lower_bound = tag.saturating_sub(context_lines);
             let upper_bound = tag + context_lines;
-            if i >= upper_bound && i <= upper_bound {
+            if i >= lower_bound && i <= upper_bound {
                 ctx[j].push((i, String::from(line)));
             }
         }
@@ -37,7 +37,7 @@ through millions of papers?";
 
     for v in ctx {
         for (i, line) in v {
-            println!("{} {}", i, line);
+            println!("{} {}", i+1, line);
         }
     }
 }
